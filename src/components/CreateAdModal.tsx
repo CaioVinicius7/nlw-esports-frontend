@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { GameController } from "phosphor-react";
+import * as Checkbox from "@radix-ui/react-checkbox";
+import { Check, GameController } from "phosphor-react";
 
 import { Input } from "./Form/Input";
 
@@ -85,7 +86,7 @@ export function CreateAdModal() {
 							</div>
 						</div>
 
-						<div className="flex flex-col gap-2 flex-1">
+						<div className="flex flex-col gap-2 flex-1 items">
 							<label htmlFor="hourStart">Qual horário do dia?</label>
 							<div className="grid grid-cols-2 gap-2">
 								<Input id="hourStart" type="time" placeholder="De" />
@@ -94,8 +95,12 @@ export function CreateAdModal() {
 						</div>
 					</div>
 
-					<div className="mt-3 flex gap-2 text-sm">
-						<input id="" type="checkbox" />
+					<div className="mt-3 flex items-center gap-2 text-sm">
+						<Checkbox.Root className="w-6 h-6 p-1 bg-zinc-900 rounded">
+							<Checkbox.Indicator>
+								<Check weight="bold" className="w-4 h-4 text-emerald-400" />
+							</Checkbox.Indicator>
+						</Checkbox.Root>
 						Costumo me conectar ao chat de voz
 					</div>
 
