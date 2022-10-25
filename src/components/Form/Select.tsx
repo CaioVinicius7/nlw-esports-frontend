@@ -4,14 +4,18 @@ import { CaretDown, Check } from "phosphor-react";
 import { Game } from "../CreateAdModal";
 
 interface SelectProps {
+	id: string;
 	games: Game[];
 }
 
-export function Select({ games }: SelectProps) {
+export function Select({ id, games }: SelectProps) {
 	return (
 		<SelectPrimitive.Root>
 			<SelectPrimitive.Trigger className="inline-flex items-center justify-between bg-zinc-900 py-3 px-4 rounded text-sm">
-				<SelectPrimitive.Value placeholder="Selecione o game que deseja jogar" />
+				<SelectPrimitive.Value
+					id={id}
+					placeholder="Selecione o game que deseja jogar"
+				/>
 				<SelectPrimitive.Icon>
 					<CaretDown className="w-4 h-4" />
 				</SelectPrimitive.Icon>
