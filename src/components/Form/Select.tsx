@@ -6,11 +6,21 @@ import { Game } from "../CreateAdModal";
 interface SelectProps {
 	id: string;
 	games: Game[];
+	selectedGameId: string;
+	setSelectedGameId: any;
 }
 
-export function Select({ id, games }: SelectProps) {
+export function Select({
+	id,
+	games,
+	selectedGameId,
+	setSelectedGameId
+}: SelectProps) {
 	return (
-		<SelectPrimitive.Root>
+		<SelectPrimitive.Root
+			value={selectedGameId}
+			onValueChange={setSelectedGameId}
+		>
 			<SelectPrimitive.Trigger className="inline-flex items-center justify-between bg-zinc-900 py-3 px-4 rounded text-sm">
 				<SelectPrimitive.Value
 					id={id}

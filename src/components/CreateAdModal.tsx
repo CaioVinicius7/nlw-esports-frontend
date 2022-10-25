@@ -15,19 +15,35 @@ export interface Game {
 
 export function CreateAdModal() {
 	const [games, setGames] = useState<Game[]>([]);
+	const [selectedGameId, setSelectedGameId] = useState("");
 	const [weekDays, setWeekDays] = useState<string[]>([]);
 	const [useVoiceChannel, setUseVoiceChannel] = useState(false);
 
-	function handleCreateAd(event: FormEvent) {
+	async function handleCreateAd(event: FormEvent) {
 		event.preventDefault();
 
 		const formData = new FormData(event.target as HTMLFormElement);
-
 		const data = Object.fromEntries(formData);
 
-		console.log(data);
-		console.log(weekDays);
-		console.log(useVoiceChannel);
+		if (!data.name) {
+			return;
+		}
+
+		try {
+			await axios.post(`http://localhost:3333/games/${selectedGameId}/ads`, {
+				name: data.name,
+				yearsPlaying: Number(data.yearsPlaying),
+				discord: data.discord,
+				weekDays: weekDays.map(Number),
+				hourStart: data.hourStart,
+				hourEnd: data.hourEnd,
+				useVoiceChannel: useVoiceChannel
+			});
+
+			alert("Anúncio criado com sucesso!");
+		} catch (err) {
+			alert("Erro ao criar o anúncio");
+		}
 	}
 
 	useEffect(() => {
@@ -51,7 +67,12 @@ export function CreateAdModal() {
 							Qual o game?
 						</label>
 
-						<Select id="game" games={games} />
+						<Select
+							id="game"
+							games={games}
+							selectedGameId={selectedGameId}
+							setSelectedGameId={setSelectedGameId}
+						/>
 					</div>
 
 					<div className="flex flex-col gap-2">
