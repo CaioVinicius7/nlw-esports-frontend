@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import axios from "axios";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
@@ -30,11 +31,9 @@ export function CreateAdModal() {
 	}
 
 	useEffect(() => {
-		fetch("http://localhost:3333/games")
-			.then((response) => response.json())
-			.then((data) => {
-				setGames(data);
-			});
+		axios("http://localhost:3333/games").then((response) => {
+			setGames(response.data);
+		});
 	}, []);
 
 	return (
