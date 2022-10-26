@@ -70,7 +70,6 @@ export function CreateAdModal() {
 						<Select
 							id="game"
 							games={games}
-							selectedGameId={selectedGameId}
 							setSelectedGameId={setSelectedGameId}
 						/>
 					</div>
