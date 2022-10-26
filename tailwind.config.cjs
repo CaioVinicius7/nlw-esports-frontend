@@ -5,6 +5,15 @@ module.exports = {
 		fontFamily: {
 			sans: ["Inter", "sans-serif"]
 		},
+		screens: {
+			xs: "350px",
+			sm: "440px",
+			md: "640px",
+			lg: "768px",
+			xl: "1024px",
+			"2xl": "1280px",
+			"3xl": "1536px"
+		},
 		extend: {
 			backgroundImage: {
 				galaxy: "url('/background-galaxy.png')",

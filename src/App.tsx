@@ -33,13 +33,13 @@ export function App() {
 	}, []);
 
 	return (
-		<div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
+		<div className="max-w-[1344px] mx-auto flex flex-col items-center my-20 px-8 3xl:px-0">
 			<img src={logo} alt="Logo" />
-			<h1 className="text-6xl text-white font-black mt-20">
+			<h1 className="text-4xl text-center text-white font-black mt-20 sm:text-5xl md:text-6xl">
 				Seu duo está aqui
 			</h1>
 
-			<div className="grid grid-cols-6 gap-6 mt-16">
+			<div className="grid grid-cols-1 gap-6 mt-16 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
 				{games.map((game) => (
 					<GameBanner
 						key={game.id}
