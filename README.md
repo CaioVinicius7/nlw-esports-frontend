@@ -51,7 +51,7 @@ Antes de tudo é importante clonar o repositório contendo a API utilizada para 
 
 ```bash
 # Clone o repositório do backend
-$ git clone https://github.com/CaioVinicius7/nlw-esports-backend
+$ git clone https://github.com/CaioVinicius7/nlw-esports-backend.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd nlw-esports-backend
